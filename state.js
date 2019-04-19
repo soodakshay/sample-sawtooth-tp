@@ -19,16 +19,6 @@ class SimpelStoreState {
    })
  }
 
- getValue(value) {
-   var address = makeAddress(value);
-   return  this.context.getState([address], this.timeout).then(function(stateEntries) {
-     Object.assign(this.stateEntries, stateEntries);
-     console.log(this.stateEntries[address].toString())
-     return  this.stateEntries;
-   }.bind(this))
- }
-}
-
 const makeAddress = (x, label) => TP_NAMESPACE + _hash(x)
 
 module.exports = SimpelStoreState;
